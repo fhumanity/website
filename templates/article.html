@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block body %}
+{% if photo %}
+<h3>{{photo.name}}</h3>
+<hr>
+<h4>Anahtar Kelimeler : {{photo.comment}}</h4>
+<hr>
+<h5>Tarih : {{photo.create_date}}</h5>
+<hr>
+{{photo.content}}
+{% else %}
+<div class="alert alert-warning">Makaleniz bulunamadı.</div>
+{% endif %}
+{% endblock body %}
+

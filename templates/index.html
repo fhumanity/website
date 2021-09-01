@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="jumbotron text-center">
+<h3>Ana Sayfa</h3>
+{% if "logged_in" in session %}
+<h5>{{session["username"]}}, Hoşgeldin</h5>
+<h5>En beğendiniz yazıları WriCoo üzerinden rahatlıkla paylaşabilirsin.</h5>
+{% else %}
+<h5>En beğendiniz yazıları WriCoo üzerinden rahatlıkla paylaşabilirsiniz.</h5>
+{% endif %}
+
+
+</div>
+{% endblock  %}
+

@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div align="center">
+<h3>Hesabım</h3>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Merhaba, {{session["username"]}}</h5>
+  </div>
+  <div class="card-body">
+    <a class="btn btn-success" href="/upload" role="button">Makale Ekle</a>
+  </div>
+</div>
+<hr>
+{% if photos %}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">İsim</th>
+      <th scope="col">Anahtar Kelimeler</th>
+      <th scope="col">Tarih</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for photo in photos  %}
+  <tr>
+  <th scope="row" >{{photo.name}}</th>
+  <td>{{photo.comment}}</td>
+  <td>{{photo.create_date}}</td>
+  <td><a href="/article/{{photo.id}}" class="btn btn-success">Göster</a></td>
+  <td><a href="/delete/{{photo.id}}" class="btn btn-success">Sil</a></td>
+
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<div class = "alert alert-danger">Hiç makaleniz bulunmuyor</div>
+{% endif %}
+
+
+{% endblock body %}
+
